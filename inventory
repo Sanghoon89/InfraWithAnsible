@@ -1,6 +1,14 @@
-[tnode]
+[web]
 tnode1-centos.com
 tnode2-ubuntu.com
+
+[db]
 tnode3-Rocky.com
+
 [nfs]
 nfsServer.com
+
+[all:children]
+web
+db
+nfs
