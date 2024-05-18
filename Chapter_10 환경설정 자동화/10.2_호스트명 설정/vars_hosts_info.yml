@@ -1,0 +1,13 @@
+tnodes:
+  - hostname: tnode1-centos
+    fqdn: tnode1-centos.com
+    net_ip: 172.16.217.222
+  - hostname: tnode1-Ubuntu
+    fqdn: tnode1-Ubuntu.com
+    net_ip: 172.16.217.218
+  - hostname: tnode1-Rocky
+    fqdn: tnode1-Rocky.com
+    net_ip: 172.16.217.220
+  - hostname: nfsServer
+    fqdn: nfsServer.com DBNAS
+    net_ip: 172.16.217.223

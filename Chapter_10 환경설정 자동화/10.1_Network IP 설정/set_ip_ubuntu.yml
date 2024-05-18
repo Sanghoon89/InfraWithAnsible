@@ -1,0 +1,22 @@
+---
+
+- hosts: tnode2-Ubuntu.com
+  vars:
+    fedora_os:
+      - CentOS
+      - Rocky
+    net_info:
+      - con_name: enp7s0
+        ip_addr: 172.16.217.216/24
+        ip_gw: 172.16.217.2
+        ip_dns: 172.16.217.2
+
+  tasks:
+  - name: Include role in CentOS and Rocky
+    ansible.builtin.include_role:
+      name: myrole.nmcli
+    when: ansible_facts.distribution in fedora_os
+  - name: Include role in Ubuntu
+    ansible.builtin.include_role:
+      name: myrole.netplan
+    when: ansible_facts.distribution == "Ubuntu"
