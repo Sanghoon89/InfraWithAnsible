@@ -1,0 +1,6 @@
+[nfs_server]
+tnode1-centos.com
+
+[nfs_client]
+tnode2-Ubuntu.com
+tnode3-Rocky.com
