@@ -13,7 +13,7 @@ dbnas_mount() {
         mount DBNAS:/vol/vol10/shared_dir /net/Backup_Temp 
 }
 
-set_sudo_nopass () {
+set_sudo_nopass() {
     FILE=/etc/sudoers
     ROW=$(grep -n %wheel $FILE |grep ": *#" |grep NOPASSWD |cut -d: -f1)
     if [ $ROW ]; then
@@ -25,7 +25,7 @@ set_sudo_nopass () {
     fi
 }
 
-add_user_ansible () {
+add_user_ansible() {
     useradd -u 2002 -U -G wheel ansible &&
         echo "[ansible] User was successfully added."
     echo "ansible:dosTjqmf" |chpasswd
