@@ -2,10 +2,10 @@
 
 - hosts: repo_node
   vars:
-    repo_url: http://172.16.217.217/repo
+    repo_url: http://172.16.217.220/repo
 
   roles:
-    - role: myrol.httpd
+    - role: myrole.httpd
 
   post_tasks:
     - name: Check http service

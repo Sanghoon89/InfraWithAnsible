@@ -15,7 +15,7 @@
 - name: Copy repo.conf file
   ansible.builtin.copy:
     src: ../files/repo.conf
-    dest: /etc/httpd/conf.d
+    dest: /etc/httpd/conf.d/
   notify:
     - Restart httpd
     - Reconfigure sefcontext
