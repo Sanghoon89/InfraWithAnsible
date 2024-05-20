@@ -11,9 +11,15 @@
         - "######## Start ########"
         - "Date: {{ ansible_facts.date_time.date }} {{ ansible_facts.date_time.time }}"
         - "HostName: {{ ansible_facts.hostname }}"
-        - "OS: {{ansible_facts.distribution }}"
-        - "OS Version: {{ansible_facts.distribution_version }}"
-        - "OS Kernel: {{ansible_facts.kernel }}"
+        - "OS: {{ ansible_facts.distribution }}"
+        - "OS Version: {{ ansible_facts.distribution_version }}"
+        - "OS Kernel: {{ ansible_facts.kernel }}"
+        - "CPU Cores: {{ ansible_facts.processor_vcores }}"
+        - "Memory: {{ ansible_facts.memory_mb.real }}"
+        - "Interfaces: {{ ansible_facts.interfaces }}"
+        - "IPv4: {{ ansible_facts.all_ipv4_addresses }}"
+        - "Devices: {{ ansible_facts.mounts }}"
+        - "######## End ########"
       register: result
 
     - name: Create log directory
