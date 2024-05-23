@@ -1,14 +1,15 @@
 ---
 
 - hosts: tnode
+  vars_files: vars_packages.yml
 
 tasks:
-  - name: Install packages on  CentOS
+  - name: Install packages on  RedHat
     ansible.builtin.dnf:
       name: "{{ item }}"
       state: present
     loop: "{{ packages }}"
-    when: ansible_facts.os_family == "CentOS"
+    when: ansible_facts.os_family == "RedHat"
 
   - name: Install packages on  Ubuntu
     ansible.builtin.apt:
@@ -33,7 +34,7 @@ tasks:
       - iostat -t -c -dp vda
       - echo "=============="
   
-  - name: MOnitoring vmstat
+  - name: Monitoring vmstat
     ansible.builtin.shell: |
       {{ item }} >> {{ log_directory }}/vmstat.log
     loop:
@@ -47,4 +48,3 @@ tasks:
   - name: Monitoring df
     ansible.builtin.shell: |
       df -h >> {{ log_directory }}/df.log
-
